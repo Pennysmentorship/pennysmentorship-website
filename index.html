@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lorem Ipsum — Template</title>
+    <meta
+      name="description"
+      content="We believe every community deserves to thrive. Join us in creating lasting change."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --sand: #f5efe4;
+        --cream: #faf6ef;
+        --bark: #3b2e20;
+        --terra: #c05e3a;
+        --moss: #4a6741;
+        --warm: #8c6a4e;
+        --muted: #7a6a58;
+        --line: rgba(59, 46, 32, 0.12);
+        --r: 6px;
+        --font-display: "Playfair Display", Georgia, serif;
+        --font-body: "DM Sans", sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-body);
+        background: var(--cream);
+        color: var(--bark);
+        line-height: 1.7;
+        font-size: 16px;
+        font-weight: 300;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+      .section {
+        padding: 6rem 0;
+      }
+      .section-label {
+        font-family: var(--font-body);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--terra);
+        margin-bottom: 1rem;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        line-height: 1.2;
+      }
+      h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+      }
+      h2 {
+        font-size: clamp(1.8rem, 4vw, 3rem);
+      }
+      h3 {
+        font-size: 1.35rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.75rem 2rem;
+        border-radius: 100px;
+        font-family: var(--font-body);
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: none;
+      }
+      .btn-primary {
+        background: var(--terra);
+        color: #fff;
+      }
+      .btn-primary:hover {
+        background: #a84f2e;
+        transform: translateY(-1px);
+      }
+      .btn-outline {
+        background: transparent;
+        color: var(--bark);
+        border: 1.5px solid var(--bark);
+      }
+      .btn-outline:hover {
+        background: var(--bark);
+        color: var(--cream);
+      }
+
+      /* ─── NAV ─── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: rgba(250, 246, 239, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--line);
+        padding: 1.1rem 0;
+        transition: box-shadow 0.3s;
+      }
+      nav.scrolled {
+        box-shadow: 0 2px 24px rgba(59, 46, 32, 0.08);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+      .nav-logo {
+        font-family: var(--font-display);
+        font-size: 1.35rem;
+        color: var(--bark);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .nav-logo .logo-mark {
+        width: 28px;
+        height: 28px;
+        background: var(--terra);
+        border-radius: 50% 50% 50% 0;
+        display: inline-block;
+        flex-shrink: 0;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--muted);
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--bark);
+      }
+      .nav-cta {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 4px;
+      }
+      .hamburger span {
+        width: 22px;
+        height: 1.5px;
+        background: var(--bark);
+        display: block;
+      }
+      .mobile-nav {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: var(--cream);
+        z-index: 200;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+      }
+      .mobile-nav.open {
+        display: flex;
+      }
+      .mobile-nav a {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        color: var(--bark);
+      }
+      .mobile-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 2rem;
+        font-size: 2rem;
+        cursor: pointer;
+        color: var(--muted);
+      }
+
+      /* ─── HERO ─── */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding-top: 80px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            ellipse 60% 60% at 80% 40%,
+            rgba(192, 94, 58, 0.08) 0%,
+            transparent 70%
+          ),
+          radial-gradient(
+            ellipse 40% 50% at 10% 80%,
+            rgba(74, 103, 65, 0.07) 0%,
+            transparent 60%
+          );
+      }
+      .hero-bg::before {
+        content: "";
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        border: 1px solid rgba(192, 94, 58, 0.12);
+        border-radius: 50%;
+        top: -100px;
+        right: -100px;
+      }
+      .hero-bg::after {
+        content: "";
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border: 1px solid rgba(74, 103, 65, 0.1);
+        border-radius: 50%;
+        bottom: 60px;
+        left: 5%;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 720px;
+      }
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: rgba(192, 94, 58, 0.1);
+        color: var(--terra);
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 0.4rem 1rem;
+        border-radius: 100px;
+        margin-bottom: 2rem;
+      }
+      .hero-eyebrow .dot {
+        width: 6px;
+        height: 6px;
+        background: var(--terra);
+        border-radius: 50%;
+      }
+      .hero h1 {
+        margin-bottom: 1.5rem;
+        color: var(--bark);
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--terra);
+      }
+      .hero p {
+        font-size: 1.125rem;
+        color: var(--muted);
+        max-width: 520px;
+        margin-bottom: 2.5rem;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      /* ─── MISSION ─── */
+      .mission {
+        background: var(--sand);
+      }
+      .mission-text h2 {
+        margin-bottom: 1.5rem;
+      }
+      .mission-text p {
+        color: var(--muted);
+        margin-bottom: 1.5rem;
+      }
+      .mission-pillars {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .pillar {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        padding: 1rem 1.25rem;
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        background: white;
+        transition: box-shadow 0.2s;
+      }
+      .pillar:hover {
+        box-shadow: 0 4px 20px rgba(59, 46, 32, 0.07);
+      }
+      .pillar-icon {
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+        background: rgba(192, 94, 58, 0.1);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+      }
+      .pillar h4 {
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 0.2rem;
+      }
+      .pillar p {
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      /* ─── PROGRAMS ─── */
+      .programs-header {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto 4rem;
+      }
+      .programs-header p {
+        color: var(--muted);
+        margin-top: 1rem;
+      }
+      .programs-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .program-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 2rem;
+        transition: transform 0.25s, box-shadow 0.25s;
+        position: relative;
+        overflow: hidden;
+      }
+      .program-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+      }
+      .program-card.c1::before {
+        background: var(--terra);
+      }
+      .program-card.c2::before {
+        background: var(--moss);
+      }
+      .program-card.c3::before {
+        background: var(--warm);
+      }
+      .program-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(59, 46, 32, 0.1);
+      }
+      .program-icon {
+        font-size: 2rem;
+        margin-bottom: 1.25rem;
+      }
+      .program-card h3 {
+        margin-bottom: 0.75rem;
+      }
+      .program-card p {
+        font-size: 14px;
+        color: var(--muted);
+        margin-bottom: 1.5rem;
+      }
+      .program-link {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--terra);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+      .program-link:hover {
+        gap: 0.6rem;
+      }
+
+      /* ─── IMPACT ─── */
+      .impact {
+        background: var(--bark);
+        color: white;
+      }
+      .impact .section-label {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .impact h2 {
+        color: white;
+        margin-bottom: 2.5rem;
+      }
+      .impact-story {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 2.5rem;
+        max-width: 700px;
+      }
+      .impact-story blockquote {
+        font-family: var(--font-display);
+        font-size: 1.4rem;
+        font-style: italic;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 1.5rem;
+      }
+      .impact-story p {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+        margin-bottom: 1.5rem;
+      }
+      .impact-attribution {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .attribution-avatar {
+        width: 44px;
+        height: 44px;
+        background: var(--terra);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        color: white;
+        flex-shrink: 0;
+      }
+      .attribution-name {
+        font-weight: 500;
+        font-size: 14px;
+      }
+      .attribution-role {
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 12px;
+      }
+
+      /* ─── DONATE ─── */
+      .donate {
+        background: var(--sand);
+      }
+      .donate-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: start;
+      }
+      .donate-info h2 {
+        margin-bottom: 1.25rem;
+      }
+      .donate-info p {
+        color: var(--muted);
+        margin-bottom: 2rem;
+      }
+      .donate-trust {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .donate-widget {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 2rem;
+      }
+      .donate-widget h3 {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+      }
+      .amount-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      .amount-btn {
+        padding: 0.65rem;
+        border: 1.5px solid var(--line);
+        border-radius: var(--r);
+        background: white;
+        font-family: var(--font-body);
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.15s;
+        color: var(--bark);
+      }
+      .amount-btn:hover,
+      .amount-btn.active {
+        border-color: var(--terra);
+        background: rgba(192, 94, 58, 0.08);
+        color: var(--terra);
+      }
+      .custom-amount {
+        width: 100%;
+        padding: 0.65rem 1rem;
+        border: 1.5px solid var(--line);
+        border-radius: var(--r);
+        font-family: var(--font-body);
+        font-size: 15px;
+        color: var(--bark);
+        background: white;
+        margin-bottom: 1.5rem;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .custom-amount:focus {
+        border-color: var(--terra);
+      }
+      .frequency-tabs {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .freq-tab {
+        flex: 1;
+        padding: 0.5rem;
+        border: 1.5px solid var(--line);
+        border-radius: var(--r);
+        background: white;
+        font-family: var(--font-body);
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        color: var(--muted);
+        transition: all 0.15s;
+      }
+      .freq-tab.active {
+        border-color: var(--terra);
+        background: rgba(192, 94, 58, 0.08);
+        color: var(--terra);
+      }
+
+      /* ─── CONTACT ─── */
+      .contact-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: start;
+      }
+      .contact-info h2 {
+        margin-bottom: 1rem;
+      }
+      .contact-info p {
+        color: var(--muted);
+        margin-bottom: 2rem;
+      }
+      .contact-details {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .contact-detail {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        font-size: 14px;
+      }
+      .contact-detail-icon {
+        font-size: 18px;
+        margin-top: -0.1em;
+      }
+      .contact-detail-label {
+        font-weight: 500;
+        margin-bottom: 0.15rem;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+      }
+      .contact-form {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 2rem;
+      }
+      .contact-form form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .form-group label {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.65rem 0.9rem;
+        border: 1.5px solid var(--line);
+        border-radius: var(--r);
+        font-family: var(--font-body);
+        font-size: 14px;
+        color: var(--bark);
+        background: white;
+        outline: none;
+        transition: border-color 0.2s;
+        resize: vertical;
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        border-color: var(--terra);
+      }
+      .form-success {
+        display: none;
+        text-align: center;
+        padding: 2rem;
+        color: var(--moss);
+      }
+      .form-success .check {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      /* ─── FOOTER ─── */
+      footer {
+        background: var(--bark);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 4rem 0 2rem;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+      .footer-brand .nav-logo {
+        color: white;
+        margin-bottom: 1rem;
+      }
+      .footer-brand p {
+        font-size: 13px;
+        line-height: 1.6;
+      }
+      .footer-col h4 {
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.4);
+        margin-bottom: 1rem;
+      }
+      .footer-col ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .footer-col a {
+        font-size: 14px;
+        transition: color 0.2s;
+      }
+      .footer-col a:hover {
+        color: white;
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+      }
+      .footer-bottom p {
+        color: rgba(255, 255, 255, 0.3);
+      }
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+      .social-link {
+        width: 34px;
+        height: 34px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        transition: all 0.2s;
+      }
+      .social-link:hover {
+        border-color: white;
+        color: white;
+      }
+
+      /* ─── ANIMATIONS ─── */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ─── RESPONSIVE ─── */
+      @media (max-width: 900px) {
+        .nav-links,
+        .nav-cta {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .donate-inner,
+        .contact-inner {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+        .programs-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          gap: 1rem;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ─── NAV ─── -->
+    <nav id="nav">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">
+          <span class="logo-mark"></span>
+          Lorem Ipsum
+        </a>
+        <ul class="nav-links">
+          <li><a href="#mission">Our Mission</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#impact">Impact</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="#donate" class="btn btn-primary">Donate</a>
+        </div>
+        <div class="hamburger" onclick="openMobileNav()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+      <span class="mobile-close" onclick="closeMobileNav()">✕</span>
+      <a href="#mission" onclick="closeMobileNav()">Our Mission</a>
+      <a href="#programs" onclick="closeMobileNav()">Programs</a>
+      <a href="#impact" onclick="closeMobileNav()">Impact</a>
+      <a href="#contact" onclick="closeMobileNav()">Contact</a>
+      <a href="#donate" class="btn btn-primary" onclick="closeMobileNav()"
+        >Donate Now</a
+      >
+    </div>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>Lorem ipsum dolor sit <em>amet consectetur</em></h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim
+            ad minim veniam.
+          </p>
+          <div class="hero-actions">
+            <a href="#donate" class="btn btn-primary">Make a Difference</a>
+            <a href="#mission" class="btn btn-outline">Learn Our Story</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── MISSION ─── -->
+    <section class="mission section" id="mission">
+      <div class="container">
+        <div class="mission-text fade-in" style="max-width: 680px">
+          <div class="section-label">Our Mission</div>
+          <h2>Lorem ipsum dolor sit amet, consectetur adipiscing.</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip.
+          </p>
+          <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident sunt in culpa qui officia deserunt mollit.
+          </p>
+          <div class="mission-pillars">
+            <div class="pillar">
+              <div class="pillar-icon">🎓</div>
+              <div>
+                <h4>Lorem Ipsum Dolor</h4>
+                <p>
+                  Consectetur adipiscing elit sed do eiusmod tempor incididunt
+                  ut labore.
+                </p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">🌱</div>
+              <div>
+                <h4>Sed Do Eiusmod</h4>
+                <p>
+                  Ut labore et dolore magna aliqua enim ad minim veniam quis
+                  nostrud.
+                </p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">🤝</div>
+              <div>
+                <h4>Tempor Incididunt</h4>
+                <p>
+                  Nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                  commodo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PROGRAMS ─── -->
+    <section class="section" id="programs">
+      <div class="container">
+        <div class="programs-header fade-in">
+          <div class="section-label">What We Do</div>
+          <h2>Lorem ipsum dolor sit amet</h2>
+          <p>
+            Consectetur adipiscing elit sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua enim ad minim veniam quis nostrud.
+          </p>
+        </div>
+        <div class="programs-grid">
+          <div class="program-card c1 fade-in">
+            <div class="program-icon">📚</div>
+            <h3>Lorem Ipsum Dolor</h3>
+            <p>
+              Consectetur adipiscing elit sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua enim ad minim veniam nostrud.
+            </p>
+            <a href="#contact" class="program-link">Get involved →</a>
+          </div>
+          <div class="program-card c2 fade-in">
+            <div class="program-icon">💼</div>
+            <h3>Sed Do Eiusmod</h3>
+            <p>
+              Ut labore et dolore magna aliqua enim ad minim veniam quis nostrud
+              exercitation ullamco laboris nisi ut aliquip commodo.
+            </p>
+            <a href="#contact" class="program-link">Learn more →</a>
+          </div>
+          <div class="program-card c3 fade-in">
+            <div class="program-icon">🏡</div>
+            <h3>Tempor Incididunt</h3>
+            <p>
+              Nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat duis aute irure dolor in reprehenderit voluptate.
+            </p>
+            <a href="#contact" class="program-link">Find a location →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── IMPACT ─── -->
+    <!-- <section class="impact section" id="impact">
+      <div class="container">
+        <div class="section-label">Our Impact</div>
+        <h2>Lorem ipsum dolor sit amet</h2>
+        <div class="impact-story fade-in">
+          <blockquote>
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua enim."
+          </blockquote>
+          <p>
+            Ut enim ad minim veniam quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur excepteur sint.
+          </p>
+          <div class="impact-attribution">
+            <div class="attribution-avatar">MR</div>
+            <div>
+              <div class="attribution-name">Maria Reyes</div>
+              <div class="attribution-role">
+                Lorem ipsum dolor sit amet consectetur
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- ─── DONATE ─── -->
+    <section class="donate section" id="donate">
+      <div class="container">
+        <div class="donate-inner">
+          <div class="donate-info fade-in">
+            <div class="section-label">Support Our Work</div>
+            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad
+              minim veniam quis nostrud exercitation.
+            </p>
+            <div class="donate-trust">
+              <div class="trust-item">
+                <span>✓</span> 501(c)(3) tax-exempt — donations are deductible
+              </div>
+              <div class="trust-item">
+                <span>✓</span> GuideStar Platinum Transparency Rating
+              </div>
+              <div class="trust-item">
+                <span>✓</span> Annual audited financial statements published
+              </div>
+              <div class="trust-item">
+                <span>✓</span> Secure encrypted payment processing
+              </div>
+            </div>
+          </div>
+          <div class="donate-widget fade-in">
+            <h3>Choose your impact</h3>
+            <div class="frequency-tabs">
+              <button
+                class="freq-tab active"
+                onclick="setFreq(this, 'monthly')"
+              >
+                Monthly
+              </button>
+              <button class="freq-tab" onclick="setFreq(this, 'once')">
+                One-time
+              </button>
+            </div>
+            <div class="amount-grid">
+              <button class="amount-btn active" onclick="setAmount(this, '25')">
+                $25
+              </button>
+              <button class="amount-btn" onclick="setAmount(this, '50')">
+                $50
+              </button>
+              <button class="amount-btn" onclick="setAmount(this, '100')">
+                $100
+              </button>
+              <button class="amount-btn" onclick="setAmount(this, '250')">
+                $250
+              </button>
+              <button class="amount-btn" onclick="setAmount(this, '500')">
+                $500
+              </button>
+              <button class="amount-btn" onclick="setAmount(this, 'custom')">
+                Other
+              </button>
+            </div>
+            <input
+              type="number"
+              class="custom-amount"
+              id="customAmountInput"
+              placeholder="Enter custom amount ($)"
+              style="display: none"
+            />
+
+            <!-- ════════════════════════════════════════════════
+             PAYMENT GATEWAY PLUGIN ZONE
+             Replace the button below with your provider:
+             ► STRIPE:  stripe.redirectToCheckout({ lineItems: [...] })
+             ► PAYPAL:  paypal.Buttons({...}).render('#payment-gateway-container')
+             ► DONORBOX / GIVINGFUEL: replace with their <script> embed
+             ► SQUARE:  mount Square Web Payments SDK card form here
+        ════════════════════════════════════════════════ -->
+            <div id="payment-gateway-container">
+              <button
+                class="btn btn-primary"
+                style="
+                  width: 100%;
+                  padding: 1rem;
+                  font-size: 15px;
+                  border-radius: 10px;
+                "
+                onclick="handleDonate()"
+              >
+                Donate Now →
+              </button>
+            </div>
+            <p
+              style="
+                font-size: 11px;
+                color: var(--muted);
+                text-align: center;
+                margin-top: 0.75rem;
+              "
+            >
+              🔒 Secure payment · No account required
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CONTACT ─── -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-inner">
+          <div class="contact-info fade-in">
+            <div class="section-label">Get In Touch</div>
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad
+              minim veniam quis nostrud exercitation.
+            </p>
+            <div class="contact-details">
+              <div class="contact-detail">
+                <span class="contact-detail-icon">📍</span>
+                <div>
+                  <div class="contact-detail-label">Address</div>
+                  <div>1247 Elm Street, Suite 200<br />Nashville, TN 37201</div>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <span class="contact-detail-icon">✉️</span>
+                <div>
+                  <div class="contact-detail-label">Email</div>
+                  <!-- Replace with your actual email -->
+                  <div>
+                    <a
+                      href="mailto:hello@loremipsum.org"
+                      style="color: var(--terra)"
+                      >hello@loremipsum.org</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <span class="contact-detail-icon">📞</span>
+                <div>
+                  <div class="contact-detail-label">Phone</div>
+                  <div>(615) 555-0192</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ════════════════════════════════════════════════
+           EMAIL / CONTACT PLUGIN ZONE
+           Wire this form to your email service of choice:
+           ► FORMSPREE (GitHub Pages friendly, free 50/mo):
+             <form action="https://formspree.io/f/YOUR_ID" method="POST">
+           ► WEB3FORMS (free 250/mo, no backend):
+             action="https://api.web3forms.com/submit"
+             + <input type="hidden" name="access_key" value="YOUR_KEY">
+           ► EMAILJS: call emailjs.sendForm() on the submit event
+           ► NETLIFY FORMS: add data-netlify="true" to <form>
+      ════════════════════════════════════════════════ -->
+          <div class="contact-form fade-in">
+            <form
+              id="contactForm"
+              action="#"
+              method="POST"
+              onsubmit="handleFormSubmit(event)"
+            >
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fname">First name</label>
+                  <input
+                    type="text"
+                    id="fname"
+                    name="first_name"
+                    placeholder="Jane"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="lname">Last name</label>
+                  <input
+                    type="text"
+                    id="lname"
+                    name="last_name"
+                    placeholder="Smith"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="jane@example.com"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="topic">Topic</label>
+                <select id="topic" name="topic">
+                  <option value="">Select a topic…</option>
+                  <option>Volunteering</option>
+                  <option>Corporate Partnership</option>
+                  <option>Donation Question</option>
+                  <option>Media Inquiry</option>
+                  <option>General Question</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  placeholder="Tell us how we can help…"
+                  required
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                style="width: 100%; padding: 0.85rem"
+              >
+                Send Message
+              </button>
+            </form>
+            <div class="form-success" id="formSuccess">
+              <div class="check">✓</div>
+              <h3
+                style="
+                  font-family: var(--font-body);
+                  font-weight: 500;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Message sent!
+              </h3>
+              <p style="font-size: 14px; color: var(--muted)">
+                We'll get back to you within one business day.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#" class="nav-logo">
+              <span class="logo-mark"></span>
+              Lorem Ipsum
+            </a>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+              eiusmod tempor incididunt ut labore.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Organization</h4>
+            <ul>
+              <li><a href="#mission">Our Mission</a></li>
+              <li><a href="#programs">Programs</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Get Involved</h4>
+            <ul>
+              <li><a href="#donate">Donate</a></li>
+              <li><a href="#contact">Volunteer</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Use</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Lorem Ipsum. All rights reserved.</p>
+          <div class="social-links">
+            <a class="social-link" href="#" aria-label="Facebook">f</a>
+            <a class="social-link" href="#" aria-label="Twitter">𝕏</a>
+            <a class="social-link" href="#" aria-label="Instagram">◻</a>
+            <a class="social-link" href="#" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("nav")
+          .classList.toggle("scrolled", window.scrollY > 10);
+      });
+
+      function openMobileNav() {
+        document.getElementById("mobileNav").classList.add("open");
+      }
+      function closeMobileNav() {
+        document.getElementById("mobileNav").classList.remove("open");
+      }
+
+      let selectedAmount = "25";
+      function setAmount(btn, val) {
+        document
+          .querySelectorAll(".amount-btn")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        selectedAmount = val;
+        const customInput = document.getElementById("customAmountInput");
+        customInput.style.display = val === "custom" ? "block" : "none";
+        if (val !== "custom") customInput.value = "";
+      }
+      function setFreq(btn, freq) {
+        document
+          .querySelectorAll(".freq-tab")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+      }
+      function handleDonate() {
+        const custom = document.getElementById("customAmountInput").value;
+        const amount = selectedAmount === "custom" ? custom : selectedAmount;
+        if (!amount) {
+          alert("Please enter a donation amount.");
+          return;
+        }
+        // ── PAYMENT GATEWAY INTEGRATION POINT ──
+        // Replace this alert with your provider's checkout trigger.
+        alert(`Connect your payment gateway to process $${amount} donations.`);
+      }
+
+      function handleFormSubmit(e) {
+        e.preventDefault();
+        // ── EMAIL PLUGIN POINT ──
+        // Remove e.preventDefault() and update the form action attribute to go live.
+        document.getElementById("contactForm").style.display = "none";
+        document.getElementById("formSuccess").style.display = "block";
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.12 }
+      );
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
