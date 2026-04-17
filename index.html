@@ -9,9 +9,19 @@
       content="We believe every community deserves to thrive. Join us in creating lasting change."
     />
 
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png" />
-    <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png" />
-    <link rel="apple-touch-icon" href="assets/favicon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/rm-bg-logo.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="64x64"
+      href="assets/rm-bg-logo.png"
+    />
+    <link rel="apple-touch-icon" href="assets/rm-bg-logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -127,8 +137,8 @@
 
       /* ─── NAV ─── */
       .logo-img {
-        width: 56px;
-        height: 56px;
+        height: 52px; /* controls the size — increase this to go bigger */
+        width: auto; /* lets the image scale proportionally */
         object-fit: contain;
         display: block;
       }
@@ -142,7 +152,7 @@
         background: rgba(250, 246, 239, 0.92);
         backdrop-filter: blur(12px);
         border-bottom: 1px solid var(--line);
-        padding: 1.1rem 0;
+        padding: 0.6rem 0; /* was 1.1rem — gives the logo room to breathe */
         transition: box-shadow 0.3s;
       }
       nav.scrolled {
